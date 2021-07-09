@@ -12,7 +12,7 @@ console.log(store);
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
-      <Provider value={store}>
+      <Provider store={store}>
         <App />
       </Provider>
     </ChakraProvider>
