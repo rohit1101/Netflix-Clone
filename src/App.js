@@ -1,8 +1,17 @@
-import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./Components/Home";
+import DashBoard from "./Components/DashBoard";
 
 function App() {
-  return <div className="App">Hello React-Redux</div>;
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/" component={DashBoard} />
+        <Route exact path="/home" component={Home} />
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
