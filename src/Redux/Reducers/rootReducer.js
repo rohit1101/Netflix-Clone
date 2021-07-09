@@ -17,7 +17,7 @@ export function rootReducer(state = initialState, action) {
     case actionTypes.GET_HOME_SUCCESS:
       return {
         ...state,
-        home: [action.payload, ...state.home],
+        home: [...action.payload],
         loading: false,
         error: false,
       };
