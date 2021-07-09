@@ -1,3 +1,10 @@
+import { baseURL, key } from "../../constants";
+import {
+  homeCall,
+  moviesCall,
+  newAndPopularCall,
+  tvCall,
+} from "../../services/api";
 import * as actionTypes from "./actionTypes";
 
 export const getHome = () => ({ type: actionTypes.GET_HOME });
@@ -9,19 +16,91 @@ export const getHomeSuccess = (homeData) => ({
 
 export const getHomeFailure = () => ({ type: actionTypes.GET_HOME_FAILURE });
 
+export const getTvShows = () => ({ type: actionTypes.GET_TVSHOWS });
+
+export const getTvShowsSuccess = (tvShowsData) => ({
+  type: actionTypes.GET_TVSHOWS_SUCCESS,
+  payload: tvShowsData,
+});
+
+export const getTvShowsFailure = () => ({
+  type: actionTypes.GET_TVSHOWS_FAILURE,
+});
+
+export const getMovies = () => ({ type: actionTypes.GET_MOVIES });
+
+export const getMoviesSuccess = (moviesData) => ({
+  type: actionTypes.GET_MOVIES_SUCCESS,
+  payload: moviesData,
+});
+
+export const getMoviesFailure = () => ({
+  type: actionTypes.GET_MOVIES_FAILURE,
+});
+
+export const getNewAndPopular = () => ({ type: actionTypes.GET_NEWANDPOPULAR });
+
+export const getNewAndPopularSuccess = (newData) => ({
+  type: actionTypes.GET_NEWANDPOPULAR_SUCCESS,
+  payload: newData,
+});
+
+export const getNewAndPopularFailure = () => ({
+  type: actionTypes.GET_NEWANDPOPULAR_FAILURE,
+});
+
 export function fetchHome() {
   return async (dispatch) => {
     dispatch(getHome());
 
     try {
-      const response = await fetch(
-        // `https://api.themoviedb.org/3/movie/550?api_key=bb28d2c8c7d5085d12200c744e54518d`
-        `https://api.themoviedb.org/3/discover/movie?api_key=bb28d2c8c7d5085d12200c744e54518d&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`
-      );
-      const data = await response.json();
+      const data = await homeCall();
       dispatch(getHomeSuccess(data.results));
     } catch (error) {
+      console.log(error);
       dispatch(getHomeFailure);
+    }
+  };
+}
+
+export function fetchTvShows() {
+  return async (dispatch) => {
+    dispatch(getTvShows());
+
+    try {
+      const data = await tvCall();
+      dispatch(getTvShowsSuccess(data.results));
+    } catch (error) {
+      console.log(error);
+      dispatch(getTvShowsFailure);
+    }
+  };
+}
+
+export function fetchMovies() {
+  return async (dispatch) => {
+    dispatch(getMovies());
+
+    try {
+      const data = await moviesCall();
+      dispatch(getMoviesSuccess(data.results));
+    } catch (error) {
+      console.log(error);
+      dispatch(getMoviesFailure);
+    }
+  };
+}
+
+export function fetchNewAndPopular() {
+  return async (dispatch) => {
+    dispatch(getNewAndPopular());
+
+    try {
+      const data = await newAndPopularCall();
+      dispatch(getNewAndPopularSuccess(data.results));
+    } catch (error) {
+      console.log(error);
+      dispatch(getNewAndPopularFailure);
     }
   };
 }

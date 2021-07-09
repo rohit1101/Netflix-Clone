@@ -1,13 +1,22 @@
 import { Link } from "react-router-dom";
-import { Link as Url } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 const DashBoard = () => {
   return (
     <>
       <h1>Your Dashboard</h1>
-      <Url href="#" color={"green.500"}>
+      <Box color={"green.500"}>
         <Link to="/home">Home</Link>
-      </Url>
+      </Box>
+      <Box color={"green.500"}>
+        <Link to="/tv">TV</Link>
+      </Box>
+      <Box color={"green.500"}>
+        <Link to="/movies">Movies</Link>
+      </Box>
+      <Box color={"green.500"}>
+        <Link to="/new">New & Popular</Link>
+      </Box>
     </>
   );
 };
