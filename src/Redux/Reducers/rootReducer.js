@@ -1,4 +1,7 @@
+import * as actionTypes from "../actionTypes";
+
 const initialState = {
+  loading: false,
   home: [],
   tvShows: [],
   movies: [],
@@ -8,11 +11,8 @@ const initialState = {
 
 export function rootReducer(state = initialState, action) {
   switch (action.type) {
-    // case DELETE_TODO:
-    //   return {
-    //     ...state,
-    //     todos: state.todos.filter((todo) => todo.id !== action.payload),
-    //   };
+    case actionTypes.GET_HOME:
+      return state;
     default:
       return state;
   }
