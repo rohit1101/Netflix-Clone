@@ -1,4 +1,4 @@
-import { baseURL, imagePath, key } from "../constants";
+import { baseURL, key } from "../constants";
 
 export async function homeCall() {
   const response = await fetch(`${baseURL}/trending/all/week?${key}`);

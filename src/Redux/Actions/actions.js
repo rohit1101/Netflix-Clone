@@ -1,4 +1,3 @@
-import { baseURL, key } from "../../constants";
 import {
   homeCall,
   moviesCall,
