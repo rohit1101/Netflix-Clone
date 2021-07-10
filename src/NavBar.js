@@ -1,14 +1,13 @@
-import { Link } from "react-router-dom";
-import { Link as Url } from "@chakra-ui/react";
+import { Link as ReactLink } from "react-router-dom";
+import { Link } from "@chakra-ui/react";
 
 const NavBar = ({ children }) => {
   return (
     <>
-      <Url color={"green.500"}>
-        <Link to="/" color={"green.500"}>
-          Dashboard
-        </Link>
-      </Url>
+      <Link as={ReactLink} to="/" color={"green.500"}>
+        Dashboard
+      </Link>
+
       {children}
     </>
   );
