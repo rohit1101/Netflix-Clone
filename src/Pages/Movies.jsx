@@ -8,8 +8,13 @@ const Movies = (props) => {
   const { loading, error, movies, fetchMovies } = props;
 
   useEffect(() => {
+    if (movies.length > 0) {
+      return;
+    } else {
+      fetchMovies();
+    }
     fetchMovies();
-  }, [fetchMovies]);
+  }, [fetchMovies, movies.length]);
 
   return (
     <NavBar>

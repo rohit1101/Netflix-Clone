@@ -8,8 +8,13 @@ const Tv = (props) => {
   const { loading, error, tvShows, fetchTvShows } = props;
 
   useEffect(() => {
+    if (tvShows.length > 0) {
+      return;
+    } else {
+      fetchTvShows();
+    }
     fetchTvShows();
-  }, [fetchTvShows]);
+  }, [fetchTvShows, tvShows.length]);
 
   return (
     <NavBar>

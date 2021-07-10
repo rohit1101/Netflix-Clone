@@ -8,8 +8,12 @@ const Home = (props) => {
   const { loading, error, home, fetchHome } = props;
 
   useEffect(() => {
-    fetchHome();
-  }, [fetchHome]);
+    if (home.length > 0) {
+      return;
+    } else {
+      fetchHome();
+    }
+  }, [fetchHome, home.length]);
 
   return (
     <NavBar>

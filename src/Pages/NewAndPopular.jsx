@@ -8,8 +8,12 @@ const NewAndPopular = (props) => {
   const { loading, error, newAndPopular, fetchNewAndPopular } = props;
 
   useEffect(() => {
-    fetchNewAndPopular();
-  }, [fetchNewAndPopular]);
+    if (newAndPopular.length > 0) {
+      return;
+    } else {
+      fetchNewAndPopular();
+    }
+  }, [fetchNewAndPopular, newAndPopular.length]);
 
   return (
     <NavBar>
