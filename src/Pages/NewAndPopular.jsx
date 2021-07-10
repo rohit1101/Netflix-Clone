@@ -1,3 +1,4 @@
+import { Box, Skeleton, Stack } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import Content from "../Components/Content";
@@ -18,12 +19,24 @@ const NewAndPopular = (props) => {
   return (
     <NavBar>
       <h1>From New and Popular</h1>
-      {loading && <p>Loading...</p>}
+
+      {loading
+        ? new Array(20).fill(0).map((loader) => (
+            <>
+              <Stack my={2}>
+                <Skeleton height="20px" />
+                <Skeleton height="20px" />
+                <Skeleton height="20px" />
+                <Box width="300px">
+                  <Skeleton height="250px" />
+                </Box>
+              </Stack>
+            </>
+          ))
+        : [...newAndPopular].map((data) => (
+            <Content key={data.id} data={data} loading={loading} />
+          ))}
       {error && <p>Could not fetch new and popular.</p>}
-      {newAndPopular &&
-        [...newAndPopular].map((data) => (
-          <Content key={data.id} data={data} loading={loading} />
-        ))}
     </NavBar>
   );
 };
