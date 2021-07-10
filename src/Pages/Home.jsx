@@ -1,7 +1,8 @@
-import { Box, Skeleton, Stack } from "@chakra-ui/react";
+import { Box, Container, Flex, Skeleton, Stack } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import Content from "../Components/Content";
+import MainLayout from "../MainLayout";
 import NavBar from "../NavBar";
 import * as actions from "../Redux/Actions/actions";
 
@@ -18,10 +19,9 @@ const Home = (props) => {
 
   return (
     <NavBar>
-      <h1>From Home</h1>
-
-      {loading
-        ? new Array(20).fill(0).map((loader) => (
+      <Box width="100%" bg="black" maxWidth="100%" mx="auto">
+        {loading ? (
+          new Array(20).fill(0).map((loader) => (
             <>
               <Stack my={2}>
                 <Skeleton height="20px" />
@@ -33,10 +33,15 @@ const Home = (props) => {
               </Stack>
             </>
           ))
-        : [...home].map((data) => (
-            <Content key={data.id} data={data} loading={loading} />
-          ))}
-      {error && <p>Could not fetch your suggestions.</p>}
+        ) : (
+          <MainLayout>
+            {[...home].map((data) => (
+              <Content key={data.id} data={data} loading={loading} />
+            ))}
+          </MainLayout>
+        )}
+        {error && <p>Could not fetch your suggestions.</p>}
+      </Box>
     </NavBar>
   );
 };
