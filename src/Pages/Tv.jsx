@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import HomePageContent from "../Components/HomePageContent";
+import Content from "../Components/Content";
+
 import NavBar from "../NavBar";
 import * as actions from "../Redux/Actions/actions";
 
@@ -19,11 +20,11 @@ const Tv = (props) => {
   return (
     <NavBar>
       <h1>From TV</h1>
-      {loading && <p>Loading tvShows posts...</p>}
-      {error && <p>Could not fetch tvShows posts.</p>}
+      {loading && <p>Loading...</p>}
+      {error && <p>Could not fetch TV Shows.</p>}
       {tvShows &&
         [...tvShows].map((data) => (
-          <HomePageContent key={data.id} homeData={data} loading={loading} />
+          <Content key={data.id} data={data} loading={loading} />
         ))}
     </NavBar>
   );

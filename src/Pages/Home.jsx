@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import HomePageContent from "../Components/HomePageContent";
+import Content from "../Components/Content";
 import NavBar from "../NavBar";
 import * as actions from "../Redux/Actions/actions";
 
@@ -18,11 +18,11 @@ const Home = (props) => {
   return (
     <NavBar>
       <h1>From Home</h1>
-      {loading && <p>Loading home posts...</p>}
-      {error && <p>Could not fetch home posts.</p>}
+      {loading && <p>Loading home...</p>}
+      {error && <p>Could not fetch your suggestions.</p>}
       {home &&
         [...home].map((data) => (
-          <HomePageContent key={data.id} homeData={data} loading={loading} />
+          <Content key={data.id} homeData={data} loading={loading} />
         ))}
     </NavBar>
   );

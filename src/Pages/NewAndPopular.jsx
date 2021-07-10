@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import HomePageContent from "../Components/HomePageContent";
+import Content from "../Components/Content";
 import NavBar from "../NavBar";
 import * as actions from "../Redux/Actions/actions";
 
@@ -18,11 +18,11 @@ const NewAndPopular = (props) => {
   return (
     <NavBar>
       <h1>From New and Popular</h1>
-      {loading && <p>Loading movies posts...</p>}
-      {error && <p>Could not fetch movies posts.</p>}
+      {loading && <p>Loading...</p>}
+      {error && <p>Could not fetch new and popular.</p>}
       {newAndPopular &&
         [...newAndPopular].map((data) => (
-          <HomePageContent key={data.id} homeData={data} loading={loading} />
+          <Content key={data.id} data={data} loading={loading} />
         ))}
     </NavBar>
   );
