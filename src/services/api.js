@@ -1,5 +1,19 @@
 import { baseURL, key } from "../constants";
 
+export async function genreMovieValue() {
+  const response = await fetch(
+    `${baseURL}/genre/movie/list?${key}&language=en-US`
+  );
+  return await response.json();
+}
+
+export async function genreTvValue(type) {
+  const response = await fetch(
+    `${baseURL}/genre/tv/list?${key}&language=en-US`
+  );
+  return await response.json();
+}
+
 export async function homeCall() {
   const response = await fetch(`${baseURL}/trending/all/week?${key}`);
   return await response.json();

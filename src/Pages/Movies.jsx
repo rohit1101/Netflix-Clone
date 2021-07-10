@@ -35,7 +35,7 @@ const Movies = (props) => {
       ) : (
         <MainLayout>
           {[...movies].map((data) => (
-            <Content key={data.id} data={data} loading={loading} />
+            <Content key={data.id} data={data} />
           ))}
         </MainLayout>
       )}

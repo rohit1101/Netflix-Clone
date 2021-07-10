@@ -6,17 +6,16 @@ const Content = ({ data }) => {
   return (
     <Flex
       direction="column"
-      maxWidth="320px"
-      height="400"
+      maxWidth="250px"
+      height="350"
       bg="gray.900"
       my="1rem"
       borderRadius="md"
     >
       <Image
-        borderRadius="md"
-        boxSize="300px"
+        boxSize="250px"
         objectFit="fill"
-        src={`${imagePath}/${backDropSize.width780}/${data.poster_path}`}
+        src={`${imagePath}/${backDropSize.width300}/${data.poster_path}`}
         alt={data.name}
       />
       <Box mt={2} maxWidth="300px" overflow="clip" textAlign="left" px="10px">
@@ -38,7 +37,10 @@ const Content = ({ data }) => {
         </Text>
         <Link
           as={ReactLink}
-          to="/tv"
+          to={{
+            pathname: `/details/${data.id}`,
+            state: { data: data },
+          }}
           color="gray.400"
           fontWeight="medium"
           fontSize="md"

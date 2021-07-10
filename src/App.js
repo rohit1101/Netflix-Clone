@@ -4,6 +4,7 @@ import Tv from "./Pages/Tv";
 import Movies from "./Pages/Movies";
 import NewAndPopular from "./Pages/NewAndPopular";
 import Home from "./Pages/Home";
+import ContentDetails from "./Components/ContentDetails";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path="/tv" component={Tv} />
         <Route exact path="/movies" component={Movies} />
         <Route exact path="/new" component={NewAndPopular} />
+        <Route exact path="/details/:id" component={ContentDetails} />
       </Switch>
     </Router>
   );

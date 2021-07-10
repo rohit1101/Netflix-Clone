@@ -6,10 +6,10 @@ import { RiListSettingsFill } from "react-icons/ri";
 
 const NavBar = ({ children }) => {
   return (
-    <>
-      <Flex bg="black" px="3rem" py="2rem" alignItems="center" pb="6rem">
+    <Box>
+      <Flex bg="black" px="3rem" py="2rem" alignItems="center">
         <Box d="flex">
-          <Box width="10rem" height="40px">
+          <Box width="8rem" height="30px">
             <span style={{ fill: "#e50914" }}>
               <svg viewBox="0 0 111 30" focusable="false">
                 <g>
@@ -56,8 +56,8 @@ const NavBar = ({ children }) => {
           <Icon as={AiOutlineUser} color="white" w="25px" h="30px" />
         </HStack>
       </Flex>
-      <Box>{children}</Box>
-    </>
+      <Box bg="black">{children}</Box>
+    </Box>
   );
 };
 
