@@ -22,7 +22,7 @@ const Home = (props) => {
       {error && <p>Could not fetch your suggestions.</p>}
       {home &&
         [...home].map((data) => (
-          <Content key={data.id} homeData={data} loading={loading} />
+          <Content key={data.id} data={data} loading={loading} />
         ))}
     </NavBar>
   );
