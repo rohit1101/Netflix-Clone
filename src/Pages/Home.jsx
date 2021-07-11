@@ -1,6 +1,8 @@
+import { Box, Skeleton, Stack } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { connect } from "react-redux";
-import HomePageContent from "../Components/HomePageContent";
+import Content from "../Components/Content";
+import MainLayout from "../MainLayout";
 import NavBar from "../NavBar";
 import * as actions from "../Redux/Actions/actions";
 
@@ -8,18 +10,34 @@ const Home = (props) => {
   const { loading, error, home, fetchHome } = props;
 
   useEffect(() => {
-    fetchHome();
-  }, [fetchHome]);
+    if (home.length > 0) {
+      return;
+    } else {
+      fetchHome();
+    }
+  }, [fetchHome, home.length]);
 
   return (
     <NavBar>
-      <h1>From Home</h1>
-      {loading && <p>Loading home posts...</p>}
-      {error && <p>Could not fetch home posts.</p>}
-      {home &&
-        [...home].map((data) => (
-          <HomePageContent key={data.id} homeData={data} loading={loading} />
-        ))}
+      {loading ? (
+        new Array(20).fill(0).map((i, index) => (
+          <Stack my={2} key={index}>
+            <Skeleton height="20px" />
+            <Skeleton height="20px" />
+            <Skeleton height="20px" />
+            <Box width="300px">
+              <Skeleton height="250px" />
+            </Box>
+          </Stack>
+        ))
+      ) : (
+        <MainLayout>
+          {[...home].map((data) => {
+            return <Content key={data.id} data={data} />;
+          })}
+        </MainLayout>
+      )}
+      {error && <p>Could not fetch your suggestions.</p>}
     </NavBar>
   );
 };
