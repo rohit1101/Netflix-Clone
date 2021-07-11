@@ -3,6 +3,7 @@ import { Box, Flex, HStack, Icon, Link, Spacer } from "@chakra-ui/react";
 import { MdNotifications, MdSearch } from "react-icons/md";
 import { AiFillGift, AiOutlineUser } from "react-icons/ai";
 import { RiListSettingsFill } from "react-icons/ri";
+import Footer from "./Components/Footer";
 
 const NavBar = ({ children }) => {
   return (
@@ -57,6 +58,7 @@ const NavBar = ({ children }) => {
         </HStack>
       </Flex>
       <Box bg="black">{children}</Box>
+      <Footer />
     </Box>
   );
 };
