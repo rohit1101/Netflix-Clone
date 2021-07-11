@@ -20,16 +20,18 @@ const Movies = (props) => {
   return (
     <NavBar>
       {loading ? (
-        new Array(20).fill(0).map((i, index) => (
-          <Stack my={2} key={index}>
-            <Skeleton height="20px" />
-            <Skeleton height="20px" />
-            <Skeleton height="20px" />
-            <Box width="300px">
-              <Skeleton height="250px" />
-            </Box>
-          </Stack>
-        ))
+        <MainLayout>
+          {new Array(20).fill(0).map((i, index) => (
+            <Stack my={2} key={index}>
+              <Skeleton height="20px" />
+              <Skeleton height="20px" />
+              <Skeleton height="20px" />
+              <Box width="300px">
+                <Skeleton height="250px" />
+              </Box>
+            </Stack>
+          ))}
+        </MainLayout>
       ) : (
         <MainLayout>
           {[...movies].map((data) => (
