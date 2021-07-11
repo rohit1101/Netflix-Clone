@@ -5,7 +5,7 @@ import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 const Footer = () => {
   return (
     <Box bg="black" py="2rem">
-      <Container maxW="container.xl" px="2rem" color="white">
+      <Container maxW="container.xl" px="3rem" color="white">
         <Box d="flex" alignItems="center" justifyContent="space-between">
           <Box d="flex" alignItems="center">
             <Center w="20px" h="40px">
