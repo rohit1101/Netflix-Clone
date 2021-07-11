@@ -20,22 +20,19 @@ const Home = (props) => {
   return (
     <NavBar>
       {loading ? (
-        new Array(20).fill(0).map(() => (
-          <>
-            <Stack my={2}>
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
-              <Box width="300px">
-                <Skeleton height="250px" />
-              </Box>
-            </Stack>
-          </>
+        new Array(20).fill(0).map((i, index) => (
+          <Stack my={2} key={index}>
+            <Skeleton height="20px" />
+            <Skeleton height="20px" />
+            <Skeleton height="20px" />
+            <Box width="300px">
+              <Skeleton height="250px" />
+            </Box>
+          </Stack>
         ))
       ) : (
         <MainLayout>
           {[...home].map((data) => {
-            console.log(data.id);
             return <Content key={data.id} data={data} />;
           })}
         </MainLayout>

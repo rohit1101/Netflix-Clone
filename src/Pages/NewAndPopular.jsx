@@ -20,17 +20,15 @@ const NewAndPopular = (props) => {
   return (
     <NavBar>
       {loading ? (
-        new Array(20).fill(0).map((loader) => (
-          <>
-            <Stack my={2}>
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
-              <Skeleton height="20px" />
-              <Box width="300px">
-                <Skeleton height="250px" />
-              </Box>
-            </Stack>
-          </>
+        new Array(20).fill(0).map((_, index) => (
+          <Stack my={2} key={index}>
+            <Skeleton height="20px" />
+            <Skeleton height="20px" />
+            <Skeleton height="20px" />
+            <Box width="300px">
+              <Skeleton height="250px" />
+            </Box>
+          </Stack>
         ))
       ) : (
         <MainLayout>

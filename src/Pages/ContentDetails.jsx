@@ -1,64 +1,16 @@
 import { Box, Image, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { backDropSize, imagePath } from "../constants";
 import NavBar from "../NavBar";
-import { genreMovieValue, genreTvValue } from "../services/api";
 
 const ContentDetails = () => {
-  const [genreType, setGenreType] = useState({
-    movie: [],
-    tv: [],
-  });
-  const [genreState, setGenreState] = useState([]);
   const { state } = useLocation();
   const data = state.data;
 
-  useEffect(() => {
-    function getGenres() {
-      genreMovieValue().then((res) =>
-        setGenreType({ ...genreType, movie: [...res.genres] })
-      );
-      genreTvValue().then((res) =>
-        setGenreType({ ...genreType, tv: [...res.genres] })
-      );
-    }
-    getGenres();
-
-    // let result;
-    // if (data.media_type === "movie") {
-    //   result = [...genreType.movie].filter(
-    //     (movieGenre) => movieGenre.id === values.id
-    //   );
-    //   setGenreState(result);
-    // }
-    // if (data.media_type === "tv") {
-    //   result = [...genreType.tv].filter((tvGenre) => tvGenre.id === values.id);
-    //   setGenreState(result);
-    // }
-
-    return () => {
-      setGenreState([]);
-    };
-  }, []);
-
-  //   const getGenres = (values) => {
-  //     let result;
-  //     if (data.media_type === "movie") {
-  //       result = [...genreType.movie].filter(
-  //         (movieGenre) => movieGenre.id === values.id
-  //       );
-  //       setGenreState(result);
-  //     }
-  //     if (data.media_type === "tv") {
-  //       result = [...genreType.tv].filter((tvGenre) => tvGenre.id === values.id);
-  //       setGenreState(result);
-  //     }
-  //   };
-  console.log(genreState);
   return (
     <NavBar>
       <Box
+        as="div"
         d="flex"
         direction="column"
         height="100vh"
@@ -101,14 +53,6 @@ const ContentDetails = () => {
           <Box>
             <Text color="gray.400" fontWeight="medium" fontSize="md">
               Rating: {data.vote_average}
-            </Text>
-          </Box>
-          <Box>
-            <Text color="gray.400" fontWeight="medium" fontSize="md">
-              Genre:{" "}
-              {[...data.genre_ids].map((genre) => (
-                <Text>genre</Text>
-              ))}
             </Text>
           </Box>
         </Box>

@@ -4,7 +4,7 @@ import Tv from "./Pages/Tv";
 import Movies from "./Pages/Movies";
 import NewAndPopular from "./Pages/NewAndPopular";
 import Home from "./Pages/Home";
-import ContentDetails from "./Components/ContentDetails";
+import ContentDetails from "./Pages/ContentDetails";
 
 function App() {
   return (
