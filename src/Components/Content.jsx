@@ -18,7 +18,7 @@ const Content = ({ data }) => {
         src={`${imagePath}/${backDropSize.width300}/${data.poster_path}`}
         alt={data.name}
       />
-      <Box mt={2} maxWidth="300px" overflow="clip" textAlign="left" px="10px">
+      <Box mt={2} maxWidth="300px" overflow="hidden" textAlign="left" px="10px">
         <Text color="gray.400" overflowWrap="normal" fontSize="sm">
           {data.overview}
         </Text>
