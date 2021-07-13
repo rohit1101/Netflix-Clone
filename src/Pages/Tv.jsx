@@ -5,7 +5,7 @@ import Content from "../Components/Content";
 import MainLayout from "../MainLayout";
 
 import NavBar from "../NavBar";
-import * as actions from "../Redux/Actions/actions";
+import * as actions from "../Redux/Thunks/Thunk";
 
 const Tv = (props) => {
   const { loading, error, tvShows, fetchTvShows } = props;

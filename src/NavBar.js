@@ -1,8 +1,7 @@
 import { Link as ReactLink } from "react-router-dom";
 import { Box, Flex, HStack, Icon, Link, Spacer } from "@chakra-ui/react";
 import { MdNotifications, MdSearch } from "react-icons/md";
-import { AiFillGift, AiOutlineUser } from "react-icons/ai";
-import { RiListSettingsFill } from "react-icons/ri";
+import { AiFillGift } from "react-icons/ai";
 import Footer from "./Components/Footer";
 
 const NavBar = ({ children }) => {
