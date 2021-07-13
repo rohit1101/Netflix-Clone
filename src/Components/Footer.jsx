@@ -12,7 +12,7 @@ const Footer = () => {
               <Icon as={RiNetflixFill} color="red" />
             </Center>
             <Text pl="1rem" fontSize="md">
-              © 2021 Envelope, Inc. All rights reserved.
+              © 2021 Netflix, Inc. All rights reserved.
             </Text>
           </Box>
           <Box d="flex">
