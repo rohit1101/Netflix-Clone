@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Content from "../Components/Content";
 import MainLayout from "../MainLayout";
 import NavBar from "../NavBar";
-import * as actions from "../Redux/Actions/actions";
+import * as actions from "../Redux/Thunks/Thunk";
 
 const NewAndPopular = (props) => {
   const { loading, error, newAndPopular, fetchNewAndPopular } = props;
