@@ -8,9 +8,9 @@ import Footer from "./Components/Footer";
 const NavBar = ({ children }) => {
   return (
     <Box>
-      <Flex bg="black" px="3rem" py="2rem" alignItems="center">
+      <Flex bg="black" px="3rem" py="2rem" alignItems="center" flexWrap="wrap">
         <Box d="flex">
-          <Box width="8rem" height="30px">
+          <Box width="8rem" height="30px" ml="5rem">
             <span style={{ fill: "#e50914" }}>
               <svg viewBox="0 0 111 30" focusable="false">
                 <g>
@@ -49,12 +49,10 @@ const NavBar = ({ children }) => {
 
         <Spacer />
 
-        <HStack spacing="20px">
+        <HStack spacing="20px" mr="4rem">
           <Icon as={MdSearch} color="white" w="25px" h="30px" />
           <Icon as={AiFillGift} color="white" w="25px" h="30px" />
           <Icon as={MdNotifications} color="white" w="25px" h="30px" />
-          <Icon as={RiListSettingsFill} color="white" w="25px" h="30px" />
-          <Icon as={AiOutlineUser} color="white" w="25px" h="30px" />
         </HStack>
       </Flex>
       <Box bg="black">{children}</Box>
