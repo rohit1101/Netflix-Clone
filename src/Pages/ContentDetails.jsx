@@ -1,6 +1,5 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 import { useLocation } from "react-router-dom";
-import Footer from "../Components/Footer";
 import { backDropSize, imagePath } from "../constants";
 import NavBar from "../NavBar";
 
