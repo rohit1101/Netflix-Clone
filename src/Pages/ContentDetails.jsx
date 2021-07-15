@@ -60,7 +60,6 @@ const ContentDetails = () => {
           </Box>
         </Box>
       </NavBar>
-      <Footer />
     </>
   );
 };
