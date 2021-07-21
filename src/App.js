@@ -7,7 +7,6 @@ import Home from "./Pages/Home";
 import ContentDetails from "./Pages/ContentDetails";
 
 function App() {
-  console.log(process.env.REACT_APP_API_KEY);
   return (
     <Router>
       <Switch>

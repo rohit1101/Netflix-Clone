@@ -1,5 +1,5 @@
 export const baseURL = `https://api.themoviedb.org/3`;
-export const key = `api_key=bb28d2c8c7d5085d12200c744e54518d`;
+export const key = `api_key=${process.env.REACT_APP_API_KEY}`;
 export const imagePath = `https://image.tmdb.org/t/p`;
 
 export const backDropSize = {
